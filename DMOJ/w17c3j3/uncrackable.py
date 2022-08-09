@@ -19,17 +19,43 @@
 def uncrackable(string):
 
     psw_lngth = len(string)
+    start_num = 8
+    end_num = 12
 
-    if psw_lngth >= 8 and psw_lngth <= 12:
+
+    if  start_num >= psw_lngth <= end_num:
         if (any(char.isdigit() for char in string)):
             if (any(char.isupper() for char in string)):
                 if (any(char.islower() for char in string)):
-                    return "valid"
+                    return "Valid"
+                else:
+                    return "Invalid"
     else:
-        return "invalid"
+        return "Invalid"
 
-test_01 = "PassW0rd"
-test_02 = "CorrectHorseBatteryStaple"
+test_01 = "PassW0rd" #valid 8 char, 2 uppercase, 1 number
+test_02 = "CorrectHorseBatteryStaple" # invalid too many char
+test_03 = "passwIIId" #invalid
+test_04 = "thisWillf41lbCau5et00M4nyChar"
+test_05 = "thisWillf4"
 
 
-print(uncrackable(test_02))
+test_samples = [
+    "PassW0rd",
+    "CorrectHorseBatteryStaple",
+    "passwIIId",
+    "thisWillf41lbCau5et00M4nyChar",
+    "thisWillf41lbC",
+    "thisWillf4"]
+
+x = 0
+
+for tests in test_samples:
+    x += 1
+    print("test " + str(x) + " " + uncrackable(tests))
+    
+#print(uncrackable(test_05))
+#print(len(test_05))
+#print(any(char.isdigit() for char in test_05))
+#print(any(char.isupper() for char in test_05))
+#rint(any(char.islower() for char in test_05))
