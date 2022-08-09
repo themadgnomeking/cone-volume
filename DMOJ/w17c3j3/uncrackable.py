@@ -15,6 +15,9 @@
 
 # OUTPUT
 # Output a single string, either Valid if the password is valid, or Invalid otherwise.
+import string
+import random
+
 
 def uncrackable(string):
 
@@ -23,21 +26,33 @@ def uncrackable(string):
     end_num = 12
 
 
-    if  start_num >= psw_lngth <= end_num:
-        if (any(char.isdigit() for char in string)):
-            if (any(char.isupper() for char in string)):
-                if (any(char.islower() for char in string)):
-                    return "Valid"
-                else:
-                    return "Invalid"
+    if  psw_lngth >= start_num and psw_lngth <= end_num:
+        lower_char_count = 0
+        upper_char_count = 0
+        num_char_count = 0
+        
+        for char in string:
+            
+            if char.islower():
+                lower_char_count += 1
+            if char.isupper():
+                upper_char_count += 1
+            if char.isdigit():
+                num_char_count += 1
+        
+        if lower_char_count >= 3 and upper_char_count >= 2 and num_char_count >= 1:
+            return "Valid" 
+        else:
+            return "Invalid " 
     else:
-        return "Invalid"
+        return "Invalid "
+            
 
 test_01 = "PassW0rd" #valid 8 char, 2 uppercase, 1 number
 test_02 = "CorrectHorseBatteryStaple" # invalid too many char
-test_03 = "passwIIId" #invalid
-test_04 = "thisWillf41lbCau5et00M4nyChar"
-test_05 = "thisWillf4"
+test_03 = "passwIIId" #invalid no numbers
+test_04 = "thisWillf41lbCau5et00M4nyChar" # invalid, too many chars
+test_05 = "thisWWillf4" # valid
 
 
 test_samples = [
@@ -46,7 +61,15 @@ test_samples = [
     "passwIIId",
     "thisWillf41lbCau5et00M4nyChar",
     "thisWillf41lbC",
-    "thisWillf4"]
+    "thisWWillf4",
+    "orseBattery",
+    "1rseBattery",
+    "H3eBattery",
+    "Ho5attery",
+    "HorseBattery",
+    "Hordtery",
+    "HorseB422ry", 
+    "Horss6tery"]
 
 x = 0
 
