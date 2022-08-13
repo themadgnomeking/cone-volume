@@ -63,7 +63,7 @@ def going_broke():
         play_count += 1
         if play_count == 4:
             play_count = 0
-    return plays
+    return "Martha plays " + str(plays) + " times before going broke."
 
     #while quarter count not equal to 0 - PLAY
 
