@@ -43,42 +43,26 @@ def going_broke():
     slot_3_payout = 9
 
     while num_quarters != 0:
-        
+        num_quarters -= 1
         if play_count == 1:
-            num_quarters -= 1
             slot_1_plays += 1
             if slot_1_plays == slot_1_cycle:
                 num_quarters += slot_1_payout
-                play_count += 1
-                plays += 1
                 slot_1_plays = 0
-            else:
-                play_count += 1
-                plays += 1
         elif play_count == 2:
-            num_quarters -= 1
             slot_2_plays += 1
             if slot_2_plays == slot_2_cycle:
                 num_quarters += slot_2_payout
-                play_count += 1
-                plays += 1
                 slot_2_plays = 0
-            else:
-                play_count += 1
-                plays += 1
         elif play_count == 3:
-            num_quarters -= 1
             slot_3_plays += 1
             if slot_3_plays == slot_3_cycle:
                 num_quarters += slot_3_payout
-                play_count = 1
-                plays += 1
                 slot_3_plays = 0
-            else:
-                play_count = 1
-                plays += 1
-
-        
+        plays += 1
+        play_count += 1
+        if play_count == 4:
+            play_count = 0
     return plays
 
     #while quarter count not equal to 0 - PLAY
