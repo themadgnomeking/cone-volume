@@ -51,6 +51,7 @@ def going_broke():
                 num_quarters += slot_1_payout
                 play_count += 1
                 plays += 1
+                slot_1_plays = 0
             else:
                 play_count += 1
                 plays += 1
@@ -61,6 +62,7 @@ def going_broke():
                 num_quarters += slot_2_payout
                 play_count += 1
                 plays += 1
+                slot_2_plays = 0
             else:
                 play_count += 1
                 plays += 1
@@ -71,6 +73,7 @@ def going_broke():
                 num_quarters += slot_3_payout
                 play_count = 1
                 plays += 1
+                slot_3_plays = 0
             else:
                 play_count = 1
                 plays += 1
