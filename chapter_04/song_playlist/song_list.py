@@ -28,20 +28,22 @@
 
 song_list = 'ABCDE'
 
-button_selection = '11114'
+button_selection = 0
+presses = 0
 
-while len(button_selection) > 0:
-    if button_selection[0] == '1':
-        song_list = song_list[1] + song_list[2] + song_list[3] + song_list[4] + song_list[0]
-        #button_selection = button_selection[1:]
-        
-    if button_selection[0] == '1':
-        song_list = song_list[4] + song_list[0] + song_list[1] + song_list[2] + song_list[3]
-        #button_selection = button_selection[1:]
-    if button_selection[0] == '1':
-        song_list = song_list[1] + song_list[0] + song_list[2] + song_list[3] + song_list[4]
-        #button_selection = button_selection[1:]
-    if button_selection[0] == '4':
-        #button_selection = ''
-        print(song_list)
-    button_selection = button_selection[1:]
+while button_selection != 4:
+    button_selection = int(input("which button are you selecting? 1, 2, 3, or 4? "))
+    presses += 1
+    for i in range(presses):
+        if button_selection == 1:
+            song_list = song_list[1:] + song_list[0]
+        elif button_selection == 2:
+            song_list = song_list[-1] + song_list[:-1]
+        elif button_selection == 3:
+            song_list = song_list[1] + song_list[0] + song_list[2:]
+list_output = ''
+
+for song in song_list:
+    list_output = list_output + song + ' '
+
+print(list_output[:-1])
